@@ -1,0 +1,11 @@
+{
+  "name": "fcc-d3-barchart",
+  "version": "1.0.0",
+  "description": "d3 barchart freecodecamp",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Owen Amaechi",
+  "license": "ISC"
+}
