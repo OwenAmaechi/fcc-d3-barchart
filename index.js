@@ -2,6 +2,9 @@ const w = 800;
 const h = 600;
 const padding = 40;
 
+const gw = w - padding;
+const gh = h - padding;
+
 let heightScale;
 let xScale;
 let xAxisScale;
@@ -22,8 +25,6 @@ const fetchGDPdata = async () => {
 		let value = d[1];
 		return [...temp_date, value];
 	});
-	console.log(gdps);
-
 	drawCanvas();
 };
 
@@ -96,10 +97,6 @@ let drawBars = () => {
 		.attr('y', (d) => h - padding - heightScale(d[3]))
 
 		.on('mouseover', (event, d) => {
-			const [x, y] = d3.pointer(event);
-			console.log('x: ' + x);
-			console.log('y: ' + y);
-
 			const val = d3.format(',.1f')(d[3]);
 			let quater;
 			if (d[1] >= 1 && d[1] <= 3) quater = 'Q1';
@@ -111,19 +108,15 @@ let drawBars = () => {
 				.style('opcacity', 0.9)
 				.style('width', 'auto')
 				.style('height', 'auto')
-				// .attr('x', x)
-				// .attr('y', y)
-				.style('left', x + '10px')
-				.style('top', y + 'px')
+				.style('left', event.pageX + 10 + 'px')
+				.style('top', event.pageY + 'px')
 				.attr('data-date', d[0] + '-' + d[1] + '-' + d[2])
 				.html(d[0] + ' ' + quater + '<br>' + '$' + val + ' Billion')
-				.attr('transform', `translate(${x},${y})`)
 				.transition()
 				.duration(100)
 				.style('opacity', 0.9);
 		})
 		.on('mouseout', (event, d) => {
-			const [x, y] = d3.pointer(event);
 			d3.select('#tooltip').transition().duration(100).delay(100).style('opacity', 0);
 		});
 };

@@ -4,7 +4,7 @@ body {
 	justify-content: center;
 	align-items: center;
 }
-#title{
+#title {
 	font-size: 2em;
 	text-align: center;
 	font-weight: bold;
@@ -24,23 +24,10 @@ svg {
 	width: 200px;
 	height: auto;
 	padding: 10px;
-	/* background-color: rgb(190, 186, 186); */
 	border-radius: 5px;
-	color: white;
-	background-color: rgb(81, 81, 236);
+	color: black;
+	background-color: rgba(105, 245, 147, 0.7);
 	box-shadow: rgba(81, 81, 236, 0.35) 0px 5px 15px;
 	pointer-events: none;
 	opacity: 0;
-
-
-	
-} 
-/* #tooltip.hidden{
-	display: none;
-}
-#tooltip p{
-	margin: 0;
-	font-family: sans-serif;
-	font-size: 1em;
-	line-height: 20px;
 }
